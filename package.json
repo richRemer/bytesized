@@ -1,6 +1,6 @@
 {
   "name": "bytesized",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "read byte values in any well-formed format",
   "main": "bytesized.js",
   "scripts": {
