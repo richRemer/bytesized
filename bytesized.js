@@ -44,6 +44,14 @@ function unitsize(unit) {
         case "eb": return 1000000000000000000;
         case "zb": return 1000000000000000000000;
         case "yb": return 1000000000000000000000000;
+        case "kib": return Math.pow(1024, 1);
+        case "mib": return Math.pow(1024, 2);
+        case "gib": return Math.pow(1024, 3);
+        case "tib": return Math.pow(1024, 4);
+        case "pib": return Math.pow(1024, 5);
+        case "eib": return Math.pow(1024, 6);
+        case "zib": return Math.pow(1024, 7);
+        case "yib": return Math.pow(1024, 8);
         default: return undefined;
     }
 }
