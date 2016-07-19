@@ -7,8 +7,8 @@ describe("bytesized", function() {
             expect(bytesized(0)).to.be(0);
             expect(bytesized(100)).to.be(100);
             expect(bytesized(0.42)).to.be(0.42);
-            expect(bytesized(NaN)).to.be(NaN);
             expect(bytesized(Infinity)).to.be(Infinity);
+            expect(isNaN(bytesized(NaN))).to.be(true);
         });
     });
     
