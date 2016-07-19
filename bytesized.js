@@ -4,6 +4,7 @@
  * @returns {number}
  */
 function bytesized(value) {
+    if (typeof value === "number") return value;
 }
 
 module.exports = bytesized;
