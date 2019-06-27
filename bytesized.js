@@ -7,25 +7,19 @@ function bytesized(value) {
     var parsed, neg, base, unit;
 
     if (typeof value === "number") return value;
-    
+
     if (/^-?[0-9]+$/.test(value)) return parseInt(value);
     if (/^-?[0-9]+\.[0-9]+$/.test(value)) return parseFloat(value);
-    
+
     parsed = /^(-?)([0-9]+(\.[0-9]+)?) ?([a-z]+)$/i.exec(value);
 
-    if (parsed) {
-        neg = parsed[1] === "-" ? -1 : 1;
-        base = (parsed[3] ? parseFloat : parseInt)(parsed[2]);
-        unit = unitsize(parsed[4]);
+    if (!parsed) return NaN;
 
-        if (unit === undefined) {
-            throw new Error("invalid format");
-        }
-        
-        return neg * base * unit;
-    } else {
-        throw new Error("invalid format");
-    }
+    neg = parsed[1] === "-" ? -1 : 1;
+    base = (parsed[3] ? parseFloat : parseInt)(parsed[2]);
+    unit = unitsize(parsed[4]);
+
+    return neg * base * unit;
 }
 
 /**
@@ -52,7 +46,7 @@ function unitsize(unit) {
         case "eib": return Math.pow(1024, 6);
         case "zib": return Math.pow(1024, 7);
         case "yib": return Math.pow(1024, 8);
-        default: return undefined;
+        default: return NaN;
     }
 }
 
